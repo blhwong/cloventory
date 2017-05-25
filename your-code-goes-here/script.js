@@ -9,18 +9,16 @@
  *       DO NOT attach the access_token as an Authorization header.
  */
 
-var accessToken = window.location.hash.slice(window.location.hash.indexOf('=') + 1);
+let accessToken = window.location.hash.slice(window.location.hash.indexOf('=') + 1);
 
-var url = window.location.href;
-var start = url.indexOf('merchant_id=') + 12;
-var merchantId = url.slice(start, start + 13);
+let url = window.location.href;
+let start = url.indexOf('merchant_id=') + 12;
+let merchantId = url.slice(start, start + 13);
 
-var infoDiv = document.getElementById("info");
-
+let infoDiv = document.getElementById('info');
 
 if (accessToken && merchantId) {
-  infoDiv.innerHTML = "Merchant ID: " + merchantId + "\nAccess Token: " + accessToken;
+  infoDiv.innerHTML = 'Merchant ID: ' + merchantId + '\nAccess Token: ' + accessToken;
 } else {
-  infoDiv.innerHTML = "Launch this page through the Clover merchant home\ndashboard to get an ID and access token.";
+  infoDiv.innerHTML = 'Launch this page through the Clover merchant home\ndashboard to get an ID and access token.';
 }
-

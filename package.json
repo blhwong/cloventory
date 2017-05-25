@@ -4,11 +4,36 @@
   "description": "basic server for testing with the Clover 3rd party API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js",
+    "start": "webpack --colors && node server/index.js"
   },
-  "author": "Anthony Pinto",
+  "author": "Brandon Wong",
   "license": "UNLICENSED",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.2.1"
+  },
   "dependencies": {
-    "express": "^4.15.2"
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.28.2",
+    "express": "^4.15.2",
+    "file-loader": "^0.11.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "lodash": "^4.17.4",
+    "node": "0.0.0",
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.4.2",
+    "react-md": "^1.0.15",
+    "style-loader": "^0.18.1"
   }
 }
