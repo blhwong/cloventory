@@ -3,9 +3,9 @@ let https = require('https');
 let path = require('path');
 
 let app = express()
-app.use(express.static('your-code-goes-here'));
+app.use(express.static('your-code-goes-here/dist'));
 
-app.use((request, response, next) => {  
+app.use((request, response, next) => {
   console.log(request.headers);
   next();
 })
@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.use((err, request, response, next) => {  
+app.use((err, request, response, next) => {
   console.log(err);
   response.status(500).send('Server Error');
 });
