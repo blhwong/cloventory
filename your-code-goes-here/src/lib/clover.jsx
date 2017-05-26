@@ -1,8 +1,34 @@
 import axios from 'axios';
 
-const getItems = (cb) => {
+const getItems = (cb, sortBy) => {
   console.log('getting items...');
-  axios.get(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items?access_token=${localStorage.accessToken}`)
+  let data = {};
+  if (sortBy === 'name') {
+    data = {
+      params: {
+        orderBy: 'name'
+      }
+    };
+  } else if (sortBy === '-name') {
+    data = {
+      params: {
+        orderBy: 'name DESC'
+      }
+    };
+  } else if (sortBy === 'quantity') {
+    data = {
+      params: {
+        orderBy: 'quantity'
+      }
+    };
+  } else if (sortBy === '-quantity') {
+    data = {
+      params: {
+        orderBy: 'quantity DESC'
+      }
+    };
+  }
+  axios.get(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items?access_token=${localStorage.accessToken}`, data)
   .then((results) => {
     cb(results.data.elements);
   })

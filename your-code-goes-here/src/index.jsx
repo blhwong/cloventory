@@ -18,7 +18,9 @@ class App extends React.Component {
       showDelete: false,
       showEdit: false,
       showCreate: false,
-      id: ''
+      id: '',
+      sortNameAscending: false,
+      sortQuantityAscending: false
     };
     this.setPopoverState = this.setPopoverState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
