@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server.js",
-    "start": "webpack --colors && node server/index.js"
+    "start": "webpack --colors && node server.js"
   },
   "author": "Brandon Wong",
   "license": "UNLICENSED",
