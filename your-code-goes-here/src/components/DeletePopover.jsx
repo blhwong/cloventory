@@ -11,7 +11,6 @@ class DeletePopover extends Component {
   handleClick() {
     this.props.handleSubmit('delete', null, null);
     this.props.setPopoverState(false, 'delete');
-
   }
 
   render() {
