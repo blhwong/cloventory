@@ -11,6 +11,7 @@ class DeletePopover extends Component {
   handleClick() {
     this.props.handleSubmit('delete', null, null);
     this.props.setPopoverState(false, 'delete');
+
   }
 
   render() {
@@ -23,6 +24,7 @@ class DeletePopover extends Component {
           <Button
             onClick={() => {
               this.props.setPopoverState(false, 'delete');
+              this.props.setId('');
             }}
           >Cancel</Button>
           <Button

@@ -43,6 +43,7 @@ class EditPopover extends Component {
           <Button
             onClick={() => {
               this.props.setPopoverState(false, 'edit');
+              this.props.setId('');
             }}
           >Cancel</Button>
           <Button>Save</Button>

@@ -95,10 +95,12 @@ class App extends React.Component {
         <DeletePopover
           showDelete={this.state.showDelete}
           setPopoverState={this.setPopoverState}
+          setId={this.setId}
         />
         <EditPopover
           showEdit={this.state.showEdit}
           setPopoverState={this.setPopoverState}
+          setId={this.setId}
         />
         <CreatePopover
           showCreate={this.state.showCreate}
