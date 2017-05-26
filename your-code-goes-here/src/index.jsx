@@ -51,10 +51,10 @@ class App extends React.Component {
     }
   }
 
-  handleSubmit(type, itemName, quantity, id) {
-    console.log(itemName, quantity);
+  handleSubmit(type, name, quantity, id) {
+    console.log(name, quantity);
     if (type === 'create') {
-
+      this.props.clover.createItem(name, quantity, this.setInventory);
     } else if (type === 'edit') {
 
     } else {

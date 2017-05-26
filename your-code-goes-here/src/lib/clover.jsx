@@ -11,7 +11,7 @@ const getItems = (cb) => {
   });
 };
 
-const updateItem = (id, name, quantity) => {
+const updateItem = (id, name, quantity, cb) => {
   console.log('updating item...');
   if (name) {
     let data = {
@@ -20,6 +20,7 @@ const updateItem = (id, name, quantity) => {
     axios.post(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items/${id}?access_token=${localStorage.accessToken}`, data)
     .then((result) => {
       console.log('Successfully updated name');
+      getItems(cb);
     })
     .catch((err) => {
       console.error(err);
@@ -32,6 +33,7 @@ const updateItem = (id, name, quantity) => {
     axios.post(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/item_stocks/${id}?access_token=${localStorage.accessToken}`, data)
     .then((result) => {
       console.log('Successfully updated quantity', result);
+      getItems(cb);
     })
     .catch((err) => {
       console.error(err);
@@ -48,7 +50,7 @@ const createItem = (name, quantity, cb) => {
   axios.post(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items?access_token=${localStorage.accessToken}`, data)
   .then((result) => {
     console.log('Successfully created item', result);
-    updateItem(result.data.id, null, quantity);
+    updateItem(result.data.id, null, quantity, cb);
   })
   .catch((err) => {
     console.error(err);
@@ -60,6 +62,7 @@ const deleteItem = (id) => {
   axios.delete(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items/${id}?access_token=${localStorage.accessToken}`)
   .then(() => {
     console.log('Successfully deleted');
+    getItems(cb);
   })
   .catch((err) => {
     console.error(err);
