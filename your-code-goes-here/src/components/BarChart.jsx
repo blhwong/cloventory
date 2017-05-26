@@ -18,7 +18,7 @@ export default class BarChart extends Component {
       labels: labels,
       datasets: [
         {
-          label: 'Inventory',
+          label: 'Item Stock',
           backgroundColor: 'rgba(67, 176, 42, 1)',
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(0, 121, 63, 1)',
