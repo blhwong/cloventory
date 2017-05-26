@@ -7,10 +7,15 @@ import clover from './lib/clover.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      inventory: []
+    };
   }
 
   componentDidMount() {
-    this.props.clover.getItems((results) => console.log(results));
+    this.props.clover.getItems((results) => this.setState({
+      inventory: results
+    }));
   }
 
   render () {
