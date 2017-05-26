@@ -26,11 +26,24 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setInventory = this.setInventory.bind(this);
     this.setId = this.setId.bind(this);
+    this.setSortState = this.setSortState.bind(this);
   }
 
   componentDidMount() {
     this.props.clover.getItems((results) => this.setInventory(results)
     );
+  }
+
+  setSortState(state, type) {
+    if (type === 'name') {
+      this.setState({
+        sortNameAscending: state
+      });
+    } else {
+      this.setState({
+        sortQuantityAscending: state
+      });
+    }
   }
 
   setId(id) {
