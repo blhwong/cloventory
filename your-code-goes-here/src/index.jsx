@@ -21,12 +21,18 @@ class App extends React.Component {
     };
     this.setPopoverState = this.setPopoverState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setInventory = this.setInventory.bind(this);
   }
 
   componentDidMount() {
-    this.props.clover.getItems((results) => this.setState({
+    this.props.clover.getItems((results) => this.setInventory(results)
+    );
+  }
+
+  setInventory(results) {
+    this.setState({
       inventory: results
-    }));
+    });
   }
 
   setPopoverState(state, type) {
@@ -45,8 +51,15 @@ class App extends React.Component {
     }
   }
 
-  handleSubmit(type, itemName, quantity) {
+  handleSubmit(type, itemName, quantity, id) {
     console.log(itemName, quantity);
+    if (type === 'create') {
+
+    } else if (type === 'edit') {
+
+    } else {
+
+    }
   }
 
   render () {
