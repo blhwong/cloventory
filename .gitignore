@@ -1,6 +1,6 @@
 node_modules/
 Challenge_Instructions.pdf
 dist/
-!index.html
-!script.js
-!styles.css
+!dist/index.html
+!dist/script.js
+!dist/styles.css
