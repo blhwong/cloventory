@@ -18,7 +18,7 @@ const Inventory = (props) => {
           return <Item
                     item={item}
                     key={index}
-                    setDeleteState={props.setDeleteState}
+                    setPopoverState={props.setPopoverState}
                   />;
         })}
       </tbody>

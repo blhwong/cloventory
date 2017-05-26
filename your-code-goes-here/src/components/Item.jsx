@@ -10,13 +10,16 @@ const Item = (props) => {
       <td className="icon">
         <span
           className="glyphicon glyphicon-pencil"
+          onClick={() => {
+            props.setPopoverState(true, 'edit');
+          }}
         ></span>
       </td>
       <td className="icon">
         <span
           className="glyphicon glyphicon-trash"
           onClick={() => {
-            props.setDeleteState(true);
+            props.setPopoverState(true, 'delete');
           }}
         ></span>
       </td>

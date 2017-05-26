@@ -6,6 +6,8 @@ import clover from './lib/clover.jsx';
 import Inventory from './components/Inventory.jsx';
 import { Button } from 'react-bootstrap';
 import DeletePopover from './components/DeletePopover.jsx';
+import EditPopover from './components/EditPopover.jsx';
+import CreatePopover from './components/CreatePopover.jsx';
 import './index.css';
 
 class App extends React.Component {
@@ -13,9 +15,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       inventory: [],
-      showDelete: false
+      showDelete: false,
+      showEdit: false,
+      showCreate: false
     };
-    this.setDeleteState = this.setDeleteState.bind(this);
+    this.setPopoverState = this.setPopoverState.bind(this);
   }
 
   componentDidMount() {
@@ -24,10 +28,20 @@ class App extends React.Component {
     }));
   }
 
-  setDeleteState(state) {
-    this.setState({
-      showDelete: state
-    });
+  setPopoverState(state, type) {
+    if (type === 'create') {
+      this.setState({
+        showCreate: state
+      });
+    } else if (type === 'edit') {
+      this.setState({
+        showEdit: state
+      });
+    } else {
+      this.setState({
+        showDelete: state
+      });
+    }
   }
 
   render () {
@@ -35,15 +49,32 @@ class App extends React.Component {
     return (
       <div>
         <span>
-          <h3>Inventory Items <Button className="button">Create</Button></h3>
+          <h3>Inventory Items
+            <Button
+              className="button"
+              onClick={() => {
+                this.setPopoverState(true, 'create');
+              }}
+            >
+            Create
+            </Button>
+          </h3>
         </span>
         <Inventory
           items={this.state.inventory}
-          setDeleteState={this.setDeleteState}
+          setPopoverState={this.setPopoverState}
         />
         <DeletePopover
           showDelete={this.state.showDelete}
-          setDeleteState={this.setDeleteState}
+          setPopoverState={this.setPopoverState}
+        />
+        <EditPopover
+          showEdit={this.state.showEdit}
+          setPopoverState={this.setPopoverState}
+        />
+        <CreatePopover
+          showCreate={this.state.showCreate}
+          setPopoverState={this.setPopoverState}
         />
       </div>
     );

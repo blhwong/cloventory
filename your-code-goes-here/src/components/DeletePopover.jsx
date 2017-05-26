@@ -11,7 +11,7 @@ const DeletePopover = (props) => {
       <Modal.Footer>
         <Button
           onClick={() => {
-            props.setDeleteState(false);
+            props.setPopoverState(false, 'delete');
           }}
         >Cancel</Button>
         <Button>Delete</Button>
