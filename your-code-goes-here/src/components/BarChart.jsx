@@ -13,7 +13,6 @@ export default class BarChart extends Component {
       labels.push(item.name);
       data.push(item.stockCount);
     });
-    console.log('barchartdata', data);
     const barAvgData = {
       labels: labels,
       datasets: [
