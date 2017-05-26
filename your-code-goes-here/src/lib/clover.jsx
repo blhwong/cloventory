@@ -4,7 +4,7 @@ const getItems = (cb) => {
   console.log('getting items...');
   axios.get(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items?access_token=${localStorage.accessToken}`)
   .then((results) => {
-    cb(results);
+    cb(results.data.elements);
   })
   .catch((err) => {
     console.error(err);
