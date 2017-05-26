@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import './DeletePopover.css';
 
-const DeletePopover = (props) => {
-  return (
-    <Modal show={props.showDelete} bsSize="sm">
-      <Modal.Body>
-        <p>Are you sure you want to delete?</p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button
-          onClick={() => {
-            props.setPopoverState(false, 'delete');
-          }}
-        >Cancel</Button>
-        <Button>Delete</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-};
+class DeletePopover extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.handleSubmit('delete', null, null);
+    this.props.setPopoverState(false, 'delete');
+  }
+
+  render() {
+    return (
+      <Modal show={this.props.showDelete} bsSize="sm">
+        <Modal.Body>
+          <p>Are you sure you want to delete?</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            onClick={() => {
+              this.props.setPopoverState(false, 'delete');
+            }}
+          >Cancel</Button>
+          <Button
+            onClick={this.handleClick}
+          >Delete</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+}
 
 export default DeletePopover;

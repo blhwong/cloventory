@@ -17,16 +17,25 @@ class App extends React.Component {
       inventory: [],
       showDelete: false,
       showEdit: false,
-      showCreate: false
+      showCreate: false,
+      id: ''
     };
     this.setPopoverState = this.setPopoverState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setInventory = this.setInventory.bind(this);
+    this.setId = this.setId.bind(this);
   }
 
   componentDidMount() {
     this.props.clover.getItems((results) => this.setInventory(results)
     );
+  }
+
+  setId(id) {
+    this.setState({
+      id: id
+    });
+    console.log(this.state.id);
   }
 
   setInventory(results) {
@@ -81,6 +90,7 @@ class App extends React.Component {
         <Inventory
           items={this.state.inventory}
           setPopoverState={this.setPopoverState}
+          setId={this.setId}
         />
         <DeletePopover
           showDelete={this.state.showDelete}

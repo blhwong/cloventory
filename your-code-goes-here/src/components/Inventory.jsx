@@ -19,6 +19,7 @@ const Inventory = (props) => {
                     item={item}
                     key={index}
                     setPopoverState={props.setPopoverState}
+                    setId={props.setId}
                   />;
         })}
       </tbody>
