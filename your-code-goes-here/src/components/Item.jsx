@@ -8,10 +8,17 @@ const Item = (props) => {
       <td>{props.item.name}</td>
       <td>{props.item.stockCount}</td>
       <td className="icon">
-        <span className="glyphicon glyphicon-pencil"></span>
+        <span
+          className="glyphicon glyphicon-pencil"
+        ></span>
       </td>
       <td className="icon">
-        <span className="glyphicon glyphicon-trash"></span>
+        <span
+          className="glyphicon glyphicon-trash"
+          onClick={() => {
+            props.setDeleteState(true);
+          }}
+        ></span>
       </td>
     </tr>
   );

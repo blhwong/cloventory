@@ -14,7 +14,13 @@ const Inventory = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.items.map((item, index) => <Item item={item} key={index}/>)}
+        {props.items.map((item, index) => {
+          return <Item
+                    item={item}
+                    key={index}
+                    setDeleteState={props.setDeleteState}
+                  />;
+        })}
       </tbody>
     </Table>
   );
