@@ -46,11 +46,9 @@ class App extends React.Component {
         sortQuantityAscending: state
       });
     }
-    console.log('sort state', this.state);
   }
 
   sortQuantity() {
-
     if (this.state.sortQuantityAscending) {
       this.state.inventory.sort((a, b) => {
         return a.stockCount - b.stockCount;
@@ -60,14 +58,12 @@ class App extends React.Component {
         return b.stockCount - a.stockCount;
       });
     }
-    // console.log('sorted quantity', sorted);
   }
 
   setId(id) {
     this.setState({
       id: id
     });
-    console.log(this.state.id);
   }
 
   setInventory(results) {
@@ -93,7 +89,6 @@ class App extends React.Component {
   }
 
   handleSubmit(type, name, quantity) {
-    console.log(name, quantity);
     if (type === 'create') {
       this.props.clover.createItem(name, quantity, this.setInventory);
     } else if (type === 'edit') {
@@ -104,7 +99,6 @@ class App extends React.Component {
   }
 
   render () {
-    console.log(this);
     return (
       <div>
         <BarChart items={this.state.inventory} />
