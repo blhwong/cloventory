@@ -29,7 +29,7 @@ class EditPopover extends Component {
   handleClick() {
     this.props.handleSubmit('edit', this.state.itemName, this.state.quantity);
     this.props.setPopoverState(false, 'edit');
-
+    this.setState({quantity: 0});
   }
 
   render() {
@@ -69,6 +69,7 @@ class EditPopover extends Component {
             onClick={() => {
               this.props.setPopoverState(false, 'edit');
               this.props.setId('');
+              this.setState({quantity: 0});
             }}
           >Cancel</Button>
           <Button onClick={this.handleClick}>Save</Button>

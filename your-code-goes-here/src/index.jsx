@@ -27,6 +27,7 @@ class App extends React.Component {
     this.setInventory = this.setInventory.bind(this);
     this.setId = this.setId.bind(this);
     this.setSortState = this.setSortState.bind(this);
+    this.sortQuantity = this.sortQuantity.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +46,20 @@ class App extends React.Component {
       });
     }
     console.log('sort state', this.state);
+  }
+
+  sortQuantity() {
+
+    if (this.state.sortQuantityAscending) {
+      this.state.inventory.sort((a, b) => {
+        return a.stockCount - b.stockCount;
+      });
+    } else {
+      this.state.inventory.sort((a, b) => {
+        return b.stockCount - a.stockCount;
+      });
+    }
+    // console.log('sorted quantity', sorted);
   }
 
   setId(id) {
@@ -112,6 +127,7 @@ class App extends React.Component {
           getItems={this.props.clover.getItems}
           setInventory={this.setInventory}
           setSortState={this.setSortState}
+          sortQuantity={this.sortQuantity}
         />
         <DeletePopover
           showDelete={this.state.showDelete}

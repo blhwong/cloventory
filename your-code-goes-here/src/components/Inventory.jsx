@@ -21,13 +21,14 @@ class Inventory extends Component {
         this.props.setSortState(true, 'name');
       }
     } else {
+      this.props.sortQuantity();
       if (this.props.sortQuantityAscending) {
         console.log('sort quantity descending');
-        this.props.getItems(this.props.setInventory, '-quantity');
+        // this.props.getItems(this.props.setInventory, '-quantity');
         this.props.setSortState(false, 'quantity');
       } else {
         console.log('sort quantity ascending');
-        this.props.getItems(this.props.setInventory, 'quantity');
+        // this.props.getItems(this.props.setInventory, 'quantity');
         this.props.setSortState(true, 'quantity');
       }
     }
