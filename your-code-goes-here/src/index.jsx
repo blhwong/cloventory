@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/less/bootstrap.less';
 import axios from 'axios';
 import clover from './lib/clover.jsx';
+import Inventory from './components/Inventory.jsx';
+import { Button } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,9 +24,10 @@ class App extends React.Component {
     console.log(this);
     return (
       <div>
-      <button onClick={this.props.clover.createItem}>Create</button>
-      <button onClick={this.props.clover.deleteItem}>Delete</button>
-      <button onClick={this.props.clover.updateItem}>Update</button>
+        <span>
+          <h3>Inventory Items <Button>Create</Button></h3>
+        </span>
+        <Inventory items={this.state.inventory}/>
       </div>
     );
   }
