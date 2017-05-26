@@ -44,6 +44,7 @@ class App extends React.Component {
         sortQuantityAscending: state
       });
     }
+    console.log('sort state', this.state);
   }
 
   setId(id) {

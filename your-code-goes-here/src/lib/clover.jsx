@@ -18,13 +18,13 @@ const getItems = (cb, sortBy) => {
   } else if (sortBy === 'quantity') {
     data = {
       params: {
-        orderBy: 'quantity'
+        orderBy: 'stockCount'
       }
     };
   } else if (sortBy === '-quantity') {
     data = {
       params: {
-        orderBy: 'quantity DESC'
+        orderBy: 'stockCount DESC'
       }
     };
   }
