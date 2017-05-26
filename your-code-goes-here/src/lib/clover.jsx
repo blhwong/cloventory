@@ -19,7 +19,7 @@ const createItem = (name = 'hi', quantity = 15, cb) => {
   };
   axios.post(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items?access_token=${localStorage.accessToken}`, data)
   .then((result) => {
-    console.log('Success 1', result);
+    console.log('Successfully created item', result);
     let quantityData = {
       quantity: 66
     };
@@ -44,15 +44,32 @@ const deleteItem = (id) => {
   });
 };
 
-const updateItem = () => {
+const updateItem = (id, name, quantity) => {
   console.log('updating item...');
-  // axios.post(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items?access_token=${localStorage.accessToken}`, data)
-  // .then((result) => {
-  //   console.log(result);
-  // })
-  // .catch((err) => {
-  //   console.error(err);
-  // });
+  if (name) {
+    let data = {
+      name: name
+    };
+    axios.post(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items/${id}?access_token=${localStorage.accessToken}`, data)
+    .then((result) => {
+      console.log('Successfully updated name');
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+  if (quantity) {
+    let data = {
+      quantity: quantity
+    };
+    axios.post(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/item_stocks/${id}?access_token=${localStorage.accessToken}`, data)
+    .then((result) => {
+      console.log('Successfully updated quantity', result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
 };
 
 export default {
