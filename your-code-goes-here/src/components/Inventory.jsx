@@ -1,17 +1,21 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import Item from './Item.jsx';
 
 const Inventory = (props) => {
   return (
     <Table striped bordered condensed hover>
       <thead>
-            <tr>
-              <th>Item Name</th>
-              <th>Quantity</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Quantity</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.items.map((item, index) => <Item item={item} key={index}/>)}
+      </tbody>
     </Table>
   );
 };

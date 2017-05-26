@@ -5,6 +5,7 @@ import axios from 'axios';
 import clover from './lib/clover.jsx';
 import Inventory from './components/Inventory.jsx';
 import { Button } from 'react-bootstrap';
+import './index.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends React.Component {
     return (
       <div>
         <span>
-          <h3>Inventory Items <Button>Create</Button></h3>
+          <h3>Inventory Items <Button className="button">Create</Button></h3>
         </span>
         <Inventory items={this.state.inventory}/>
       </div>
