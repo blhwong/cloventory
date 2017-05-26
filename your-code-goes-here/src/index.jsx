@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/less/bootstrap.less';
+import axios from 'axios';
+import clover from './lib/clover.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,6 +10,7 @@ class App extends React.Component {
   }
 
   render () {
+    console.log(this);
     return (
       <div>
       Hello World!
@@ -16,4 +19,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App clover={clover}/>, document.getElementById('app'));
