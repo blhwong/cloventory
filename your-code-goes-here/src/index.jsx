@@ -60,14 +60,14 @@ class App extends React.Component {
     }
   }
 
-  handleSubmit(type, name, quantity, id) {
+  handleSubmit(type, name, quantity) {
     console.log(name, quantity);
     if (type === 'create') {
       this.props.clover.createItem(name, quantity, this.setInventory);
     } else if (type === 'edit') {
-
+      this.props.clover.updateItem(this.state.id, name, quantity, this.setInventory);
     } else {
-
+      this.props.clover.deleteItem(this.state.id, this.setInventory);
     }
   }
 
@@ -95,11 +95,13 @@ class App extends React.Component {
         <DeletePopover
           showDelete={this.state.showDelete}
           setPopoverState={this.setPopoverState}
+          handleSubmit={this.handleSubmit}
           setId={this.setId}
         />
         <EditPopover
           showEdit={this.state.showEdit}
           setPopoverState={this.setPopoverState}
+          handleSubmit={this.handleSubmit}
           setId={this.setId}
         />
         <CreatePopover

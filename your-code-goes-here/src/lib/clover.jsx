@@ -57,7 +57,7 @@ const createItem = (name, quantity, cb) => {
   });
 };
 
-const deleteItem = (id) => {
+const deleteItem = (id, cb) => {
   console.log('deleting item...');
   axios.delete(`https://apisandbox.dev.clover.com/v3/merchants/${localStorage.merchantId}/items/${id}?access_token=${localStorage.accessToken}`)
   .then(() => {
