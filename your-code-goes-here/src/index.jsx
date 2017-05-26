@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap';
 import DeletePopover from './components/DeletePopover.jsx';
 import EditPopover from './components/EditPopover.jsx';
 import CreatePopover from './components/CreatePopover.jsx';
+import BarChart from './components/BarChart.jsx';
 import './index.css';
 
 class App extends React.Component {
@@ -106,6 +107,7 @@ class App extends React.Component {
     console.log(this);
     return (
       <div>
+        <BarChart items={this.state.inventory} />
         <span>
           <h3>Inventory Items
             <Button
