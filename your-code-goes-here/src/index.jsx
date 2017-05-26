@@ -20,6 +20,7 @@ class App extends React.Component {
       showCreate: false
     };
     this.setPopoverState = this.setPopoverState.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +43,10 @@ class App extends React.Component {
         showDelete: state
       });
     }
+  }
+
+  handleSubmit(type, itemName, quantity) {
+    console.log(itemName, quantity);
   }
 
   render () {
@@ -75,6 +80,7 @@ class App extends React.Component {
         <CreatePopover
           showCreate={this.state.showCreate}
           setPopoverState={this.setPopoverState}
+          handleSubmit={this.handleSubmit}
         />
       </div>
     );

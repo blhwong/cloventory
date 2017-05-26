@@ -7,9 +7,28 @@ class CreatePopover extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 0,
-      itemName: ''
+      itemName: '',
+      quantity: 0
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleChange(e, type) {
+    if (type === 'item') {
+      this.setState({
+        itemName: e.target.value
+      });
+    } else {
+      this.setState({
+        quantity: e
+      });
+    }
+  }
+
+  handleClick() {
+    this.props.handleSubmit('create', this.state.itemName, this.state.quantity);
+    this.props.setPopoverState(false, 'create');
   }
 
   render() {
@@ -25,11 +44,16 @@ class CreatePopover extends Component {
                 type="text"
                 label="Item Name"
                 placeholder="Item Name"
+                onChange={(e) => {
+                  this.handleChange(e, 'item');
+                }}
               />
           <DropdownButton
             title={this.state.quantity.toString()}
             key={this.state.quantity}
-            className="btn"
+            onSelect={(e) => {
+              this.handleChange(e, 'quantity');
+            }}
             id={`dropdown-basic-${this.state.quantity}`}
           >
             {_.range(20).map((key) => {
@@ -45,7 +69,9 @@ class CreatePopover extends Component {
               this.props.setPopoverState(false, 'create');
             }}
           >Cancel</Button>
-          <Button>Add</Button>
+          <Button
+            onClick={this.handleClick}
+          >Add</Button>
         </Modal.Footer>
       </Modal>
     );
