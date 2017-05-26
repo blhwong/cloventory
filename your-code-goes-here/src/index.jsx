@@ -9,11 +9,17 @@ class App extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.clover.getItems((results) => console.log(results));
+  }
+
   render () {
     console.log(this);
     return (
       <div>
-      Hello World!
+      <button onClick={this.props.clover.createItem}>Create</button>
+      <button onClick={this.props.clover.deleteItem}>Delete</button>
+      <button onClick={this.props.clover.updateItem}>Update</button>
       </div>
     );
   }
