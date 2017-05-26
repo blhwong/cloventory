@@ -10,6 +10,19 @@ class Inventory extends Component {
 
   handleClick(e) {
     console.log(e.target);
+    if (e.target.innerHTML[0] === 'I') {
+      if (this.props.sortNameAscending) {
+        console.log('sort name descending');
+      } else {
+        console.log('sort name ascending');
+      }
+    } else {
+      if (this.props.sortQuantityAscending) {
+        console.log('sort quantity descending');
+      } else {
+        console.log('sort quantity ascending');
+      }
+    }
   }
 
   render() {
