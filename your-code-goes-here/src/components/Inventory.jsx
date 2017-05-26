@@ -7,8 +7,8 @@ const Inventory = (props) => {
     <Table striped bordered condensed hover>
       <thead>
         <tr>
-          <th>Item Name</th>
-          <th>Quantity</th>
+          <th><a>Item Name</a></th>
+          <th><a>Quantity</a></th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
