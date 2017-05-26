@@ -93,6 +93,10 @@ class App extends React.Component {
           items={this.state.inventory}
           setPopoverState={this.setPopoverState}
           setId={this.setId}
+          sortNameAscending={this.state.sortNameAscending}
+          sortQuantityAscending={this.state.sortQuantityAscending}
+          getItems={this.props.clover.getItems}
+          setInventory={this.setInventory}
         />
         <DeletePopover
           showDelete={this.state.showDelete}
